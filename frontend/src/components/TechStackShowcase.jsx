@@ -1,27 +1,44 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiNodedotjs, 
+  SiPython, 
+  SiPostgresql, 
+  SiMongodb, 
+  SiAmazonaws, 
+  SiDocker, 
+  SiTensorflow,
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiFigma,
+  SiBlender,
+  SiAdobeaftereffects,
+  SiAdobepremierepro
+} from 'react-icons/si';
 
 const techStack = [
-  { name: 'React', category: 'tech' },
-  { name: 'Next.js', category: 'tech' },
-  { name: 'Node.js', category: 'tech' },
-  { name: 'Python', category: 'tech' },
-  { name: 'PostgreSQL', category: 'tech' },
-  { name: 'MongoDB', category: 'tech' },
-  { name: 'AWS', category: 'tech' },
-  { name: 'Docker', category: 'tech' },
-  { name: 'TensorFlow', category: 'tech' }
+  { name: 'React', category: 'tech', icon: SiReact, color: '#61DAFB' },
+  { name: 'Next.js', category: 'tech', icon: SiNextdotjs, color: '#FFFFFF' },
+  { name: 'Node.js', category: 'tech', icon: SiNodedotjs, color: '#339933' },
+  { name: 'Python', category: 'tech', icon: SiPython, color: '#3776AB' },
+  { name: 'PostgreSQL', category: 'tech', icon: SiPostgresql, color: '#4169E1' },
+  { name: 'MongoDB', category: 'tech', icon: SiMongodb, color: '#47A248' },
+  { name: 'AWS', category: 'tech', icon: SiAmazonaws, color: '#FF9900' },
+  { name: 'Docker', category: 'tech', icon: SiDocker, color: '#2496ED' },
+  { name: 'TensorFlow', category: 'tech', icon: SiTensorflow, color: '#FF6F00' }
 ];
 
 const creativeTools = [
-  { name: 'Adobe Photoshop', category: 'creative' },
-  { name: 'Adobe Illustrator', category: 'creative' },
-  { name: 'Figma', category: 'creative' },
-  { name: 'Blender', category: 'creative' },
-  { name: 'After Effects', category: 'creative' },
-  { name: 'Premiere Pro', category: 'creative' },
-  { name: 'DaVinci Resolve', category: 'creative' }
+  { name: 'Adobe Photoshop', category: 'creative', icon: SiAdobephotoshop, color: '#31A8FF' },
+  { name: 'Adobe Illustrator', category: 'creative', icon: SiAdobeillustrator, color: '#FF9A00' },
+  { name: 'Figma', category: 'creative', icon: SiFigma, color: '#F24E1E' },
+  { name: 'Blender', category: 'creative', icon: SiBlender, color: '#F5792A' },
+  { name: 'After Effects', category: 'creative', icon: SiAdobeaftereffects, color: '#9999FF' },
+  { name: 'Premiere Pro', category: 'creative', icon: SiAdobepremierepro, color: '#9999FF' },
+  { name: 'DaVinci Resolve', category: 'creative', icon: null, color: '#FFFFFF' }
 ];
 
 export const TechStackShowcase = () => {
@@ -44,26 +61,38 @@ export const TechStackShowcase = () => {
         {/* Tech Stack Marquee - Scroll Left to Right */}
         <div className="marquee-container">
           <div className="marquee-track marquee-left-to-right">
-            {techStackExtended.map((tech, index) => (
-              <div key={`tech-${index}`} className="tech-card">
-                <div className="tech-logo-placeholder">
+            {techStackExtended.map((tech, index) => {
+              const Icon = tech.icon;
+              return (
+                <div key={`tech-${index}`} className="tech-card">
+                  <div className="tech-icon-wrapper">
+                    {Icon && <Icon className="tech-icon" />}
+                  </div>
                   <span className="tech-name">{tech.name}</span>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* Creative Tools Marquee - Scroll Right to Left */}
         <div className="marquee-container">
           <div className="marquee-track marquee-right-to-left">
-            {creativeToolsExtended.map((tool, index) => (
-              <div key={`creative-${index}`} className="tech-card">
-                <div className="tech-logo-placeholder">
+            {creativeToolsExtended.map((tool, index) => {
+              const Icon = tool.icon;
+              return (
+                <div key={`creative-${index}`} className="tech-card">
+                  <div className="tech-icon-wrapper">
+                    {Icon ? (
+                      <Icon className="tech-icon" />
+                    ) : (
+                      <div className="tech-icon-placeholder-text">DR</div>
+                    )}
+                  </div>
                   <span className="tech-name">{tool.name}</span>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
