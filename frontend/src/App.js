@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
+import { WhyChooseUsSection } from "./components/WhyChooseUsSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
@@ -13,6 +14,7 @@ const Home = () => {
     <div className="page-wrapper">
       <HeroSection />
       <ServicesSection />
+      <WhyChooseUsSection />
       <TestimonialsSection />
       <CTASection />
     </div>
