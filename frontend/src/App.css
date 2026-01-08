@@ -665,17 +665,126 @@ body {
 }
 
 /* ========================================
-   TESTIMONIALS SECTION
+   TECH STACK SHOWCASE SECTION
+======================================== */
+.tech-stack-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  overflow: hidden;
+}
+
+.tech-stack-section .section-container {
+  max-width: 100%;
+  padding: 0 7.6923%;
+}
+
+.tech-stack-section .section-header {
+  max-width: 1400px;
+  margin: 0 auto 60px;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 32px;
+  width: fit-content;
+}
+
+.marquee-left-to-right {
+  animation: scroll-left-to-right 40s linear infinite;
+}
+
+.marquee-right-to-left {
+  animation: scroll-right-to-left 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left-to-right {
+  from {
+    transform: translateX(-33.33%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-right-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.33%);
+  }
+}
+
+.tech-card {
+  flex-shrink: 0;
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  padding: 24px 32px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--brand-gold);
+  box-shadow: 0 8px 32px rgba(201, 162, 95, 0.3);
+  transform: translateY(-4px);
+}
+
+.tech-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.tech-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.tech-card:hover .tech-name {
+  color: var(--brand-gold);
+}
+
+.tech-stack-cta {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* ========================================
+   TESTIMONIALS SECTION - UPDATED
 ======================================== */
 .testimonials-section {
   padding: 100px 7.6923%;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
+}
+
+.testimonials-grid-new {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 60px;
 }
 
 .testimonial-card {
@@ -689,6 +798,87 @@ body {
 .testimonial-card:hover {
   border-color: var(--brand-gold);
   transform: translateY(-4px);
+}
+
+.testimonial-card-new {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--brand-gold);
+  padding: 40px;
+  position: relative;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonial-card-new:hover {
+  border-color: var(--brand-gold);
+  box-shadow: 0 12px 48px rgba(201, 162, 95, 0.3);
+  transform: translateY(-8px);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-quote {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-style: italic;
+  flex: 1;
+}
+
+.testimonial-author-new {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.author-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--brand-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brand-gold);
+  flex-shrink: 0;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.author-name-new {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.author-position {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.author-company-new {
+  font-size: 14px;
+  color: var(--brand-gold);
+  font-weight: 500;
+}
+
+.testimonials-cta {
+  text-align: center;
 }
 
 .testimonial-quote-icon {
