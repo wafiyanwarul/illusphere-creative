@@ -1284,6 +1284,10 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  .testimonials-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1330,6 +1334,11 @@ body {
     gap: 32px;
   }
   
+  .testimonials-grid-new {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
   }
@@ -1347,5 +1356,33 @@ body {
   
   .cta-title {
     font-size: 72px;
+  }
+}
+
+/* Mobile - Horizontal Scroll for Testimonials */
+@media (max-width: 767px) {
+  .testimonials-grid-new {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .testimonial-card-new {
+    flex: 0 0 90%;
+    scroll-snap-align: start;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .testimonials-grid-new::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .testimonials-grid-new {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
