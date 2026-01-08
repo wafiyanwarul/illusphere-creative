@@ -492,6 +492,178 @@ body {
   margin-top: 60px;
 }
 
+/* Featured Services Grid with Glassmorphism */
+.services-grid-featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.service-card-glass {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.service-card-glass:hover {
+  background: rgba(18, 18, 18, 0.8);
+  border-color: var(--brand-gold);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(201, 162, 95, 0.2);
+}
+
+.service-card-glass:hover::before {
+  transform: translateX(100%);
+}
+
+.service-icon-container {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 95, 0.1);
+  border: 1px solid rgba(201, 162, 95, 0.3);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.service-card-glass:hover .service-icon-container {
+  background: rgba(201, 162, 95, 0.2);
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 30px rgba(201, 162, 95, 0.3);
+}
+
+.service-icon-svg {
+  color: var(--brand-gold);
+}
+
+.service-title-glass {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.service-description-glass {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.service-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--brand-gold);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.service-learn-more:hover {
+  gap: 12px;
+  color: var(--brand-gold-active);
+}
+
+/* ========================================
+   WHY CHOOSE US SECTION
+======================================== */
+.why-choose-us-section {
+  padding: 100px 7.6923%;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.value-props-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.value-prop-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.value-prop-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--brand-gold);
+  transition: height 0.4s ease;
+}
+
+.value-prop-card:hover {
+  border-color: var(--brand-gold);
+  transform: translateX(8px);
+}
+
+.value-prop-card:hover::after {
+  height: 100%;
+}
+
+.value-prop-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 95, 0.1);
+  border: 1px solid rgba(201, 162, 95, 0.3);
+  color: var(--brand-gold);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.value-prop-card:hover .value-prop-icon {
+  background: rgba(201, 162, 95, 0.2);
+  box-shadow: 0 0 24px rgba(201, 162, 95, 0.3);
+}
+
+.value-prop-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.value-prop-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
 /* ========================================
    TESTIMONIALS SECTION
 ======================================== */
