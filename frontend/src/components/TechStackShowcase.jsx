@@ -8,7 +8,7 @@ import {
   SiPython, 
   SiPostgresql, 
   SiMongodb, 
-  SiAmazonaws, 
+  SiAmazonwebservices, 
   SiDocker, 
   SiTensorflow,
   SiAdobephotoshop,
@@ -26,7 +26,7 @@ const techStack = [
   { name: 'Python', category: 'tech', icon: SiPython, color: '#3776AB' },
   { name: 'PostgreSQL', category: 'tech', icon: SiPostgresql, color: '#4169E1' },
   { name: 'MongoDB', category: 'tech', icon: SiMongodb, color: '#47A248' },
-  { name: 'AWS', category: 'tech', icon: SiAmazonaws, color: '#FF9900' },
+  { name: 'AWS', category: 'tech', icon: SiAmazonwebservices, color: '#FF9900' },
   { name: 'Docker', category: 'tech', icon: SiDocker, color: '#2496ED' },
   { name: 'TensorFlow', category: 'tech', icon: SiTensorflow, color: '#FF6F00' }
 ];
