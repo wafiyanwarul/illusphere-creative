@@ -1,51 +1,53 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React from "react";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { Navigation } from "./components/Navigation";
+import { HeroSection } from "./components/HeroSection";
+import { ServicesSection } from "./components/ServicesSection";
+import { TestimonialsSection } from "./components/TestimonialsSection";
+import { CTASection } from "./components/CTASection";
+import { Footer } from "./components/Footer";
 
 const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="page-wrapper">
+      <HeroSection />
+      <ServicesSection />
+      <TestimonialsSection />
+      <CTASection />
     </div>
   );
 };
+
+// Placeholder pages
+const ServicesPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Services Page</h1><p>Coming soon...</p></div></div>;
+const PortfolioPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Portfolio Page</h1><p>Coming soon...</p></div></div>;
+const AboutPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>About Page</h1><p>Coming soon...</p></div></div>;
+const PartnershipPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Partnership Page</h1><p>Coming soon...</p></div></div>;
+const TestimonialsPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Testimonials Page</h1><p>Coming soon...</p></div></div>;
+const TechStackPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Tech Stack Page</h1><p>Coming soon...</p></div></div>;
+const ContactPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Contact Page</h1><p>Coming soon...</p></div></div>;
+const OrderServicesPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Order Services Page</h1><p>Coming soon...</p></div></div>;
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <Navigation />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/partnership" element={<PartnershipPage />} />
+            <Route path="/testimonials" element={<TestimonialsPage />} />
+            <Route path="/tech-stack" element={<TechStackPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/order-services" element={<OrderServicesPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </div>
   );
