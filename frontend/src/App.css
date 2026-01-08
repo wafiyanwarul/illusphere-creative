@@ -1082,6 +1082,14 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  .services-grid-featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .value-props-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1119,6 +1127,16 @@ body {
   
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .services-grid-featured {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .value-props-grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
   }
   
