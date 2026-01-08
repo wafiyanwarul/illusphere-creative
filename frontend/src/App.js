@@ -5,6 +5,7 @@ import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
 import { WhyChooseUsSection } from "./components/WhyChooseUsSection";
+import { TechStackShowcase } from "./components/TechStackShowcase";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
@@ -15,6 +16,7 @@ const Home = () => {
       <HeroSection />
       <ServicesSection />
       <WhyChooseUsSection />
+      <TechStackShowcase />
       <TestimonialsSection />
       <CTASection />
     </div>
