@@ -30,7 +30,7 @@ const valueProps = [
 
 export const WhyChooseUsSection = () => {
   return (
-    <section className="why-choose-us-section">
+    <section className="why-choose-section">
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">Why Choose Illusphere Creative</h2>
