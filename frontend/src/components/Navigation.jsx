@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { navLinks } from '../data/mockData';
+
+const navItems = [
+  { name: 'Home', id: 'home' },
+  { name: 'Services', id: 'services' },
+  { name: 'Portfolio', id: 'portfolio' },
+  { name: 'About', id: 'about' },
+  { name: 'Partnership', id: 'partnership' },
+  { name: 'Testimonials', id: 'testimonials' },
+  { name: 'Tech Stack', id: 'tech-stack' },
+  { name: 'Contact', id: 'contact' }
+];
 
 export const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Intersection Observer for scroll-spy
   useEffect(() => {
-    if (location.pathname !== '/') {
-      setActiveSection('');
-      return;
-    }
-
-    const sections = document.querySelectorAll('.hero-section, .services-section, .tech-stack-section, .testimonials-section, .partnership-section');
+    const sections = document.querySelectorAll('section[id]');
     
     const observerOptions = {
       root: null,
@@ -27,9 +32,10 @@ export const Navigation = () => {
     const observerCallback = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const sectionClass = entry.target.className.split(' ')[0];
-          const sectionName = sectionClass.replace('-section', '');
-          setActiveSection(sectionName);
+          const sectionId = entry.target.getAttribute('id');
+          setActiveSection(sectionId);
+          // Update URL hash without scrolling
+          window.history.replaceState(null, '', `/#${sectionId}`);
         }
       });
     };
@@ -38,84 +44,37 @@ export const Navigation = () => {
     sections.forEach(section => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [location.pathname]);
+  }, []);
 
-  // Smooth scroll to section
-  const handleNavClick = (e, path, linkName) => {
+  // Handle navigation clicks
+  const handleNavClick = (e, sectionId) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
     
-    if (path === '/' || location.pathname === '/') {
-      // Handle homepage sections
-      let sectionClass = '';
-      switch(linkName) {
-        case 'Home':
-          sectionClass = '.hero-section';
-          break;
-        case 'Services':
-          sectionClass = '.services-section';
-          break;
-        case 'Tech Stack':
-          sectionClass = '.tech-stack-section';
-          break;
-        case 'Testimonials':
-          sectionClass = '.testimonials-section';
-          break;
-        case 'Partnership':
-          sectionClass = '.partnership-section';
-          break;
-        default:
-          navigate(path);
-          setMobileMenuOpen(false);
-          return;
-      }
-
-      if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          const section = document.querySelector(sectionClass);
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
-      } else {
-        const section = document.querySelector(sectionClass);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-      setMobileMenuOpen(false);
+    // Ensure we're on the homepage
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => scrollToSection(sectionId), 100);
     } else {
-      navigate(path);
-      setMobileMenuOpen(false);
+      scrollToSection(sectionId);
     }
   };
 
-  const getActiveClass = (linkName) => {
-    if (location.pathname !== '/') {
-      // For other pages, check exact path match
-      const link = navLinks.find(l => l.name === linkName);
-      return location.pathname === link.path ? 'active' : '';
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.pushState(null, '', `/#${sectionId}`);
     }
-    
-    // For homepage sections
-    const sectionMap = {
-      'Home': 'hero',
-      'Services': 'services',
-      'Tech Stack': 'tech-stack',
-      'Testimonials': 'testimonials',
-      'Partnership': 'partnership'
-    };
-    
-    return activeSection === sectionMap[linkName] ? 'active' : '';
   };
 
   return (
     <header className="dark-header">
       <div className="header-content">
-        <Link 
-          to="/" 
+        <a 
+          href="#home" 
           className="logo-container"
-          onClick={(e) => handleNavClick(e, '/', 'Home')}
+          onClick={(e) => handleNavClick(e, 'home')}
         >
           <img 
             src="https://customer-assets.emergentagent.com/job_e216c6e6-05e3-4bc4-8ced-3f4e36ac0340/artifacts/nshly17c_Gemini_Generated_Image_iaz3k5iaz3k5iaz3.png" 
@@ -123,18 +82,18 @@ export const Navigation = () => {
             className="dark-logo"
           />
           <span className="logo-text">Illusphere Creative</span>
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="dark-nav desktop-nav">
-          {navLinks.map((link) => (
+          {navItems.map((item) => (
             <a
-              key={link.path}
-              href={link.path}
-              className={`dark-nav-link ${getActiveClass(link.name)}`}
-              onClick={(e) => handleNavClick(e, link.path, link.name)}
+              key={item.id}
+              href={`#${item.id}`}
+              className={`dark-nav-link ${activeSection === item.id ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, item.id)}
             >
-              {link.name}
+              {item.name}
             </a>
           ))}
         </nav>
@@ -152,14 +111,14 @@ export const Navigation = () => {
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <nav className="mobile-nav">
-          {navLinks.map((link) => (
+          {navItems.map((item) => (
             <a
-              key={link.path}
-              href={link.path}
-              className={`mobile-nav-link ${getActiveClass(link.name)}`}
-              onClick={(e) => handleNavClick(e, link.path, link.name)}
+              key={item.id}
+              href={`#${item.id}`}
+              className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, item.id)}
             >
-              {link.name}
+              {item.name}
             </a>
           ))}
         </nav>
