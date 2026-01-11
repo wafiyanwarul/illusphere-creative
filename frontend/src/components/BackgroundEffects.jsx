@@ -1,6 +1,22 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './BackgroundEffects.css';
 
+// Generate random particles with varied properties - defined outside component
+function generateParticles(count) {
+  const shapes = ['square', 'triangle', 'circle', 'diamond'];
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    shape: shapes[i % shapes.length],
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    size: Math.random() * 10 + 10, // 10-20px
+    animationDelay: Math.random() * -40,
+    animationDuration: Math.random() * 20 + 20, // 20-40s
+    rotationDuration: Math.random() * 30 + 20, // 20-50s
+    opacityBase: Math.random() * 0.05 + 0.05, // 0.05-0.1
+  }));
+}
+
 export const BackgroundEffects = () => {
   const cursorGlowRef = useRef(null);
   const cursorRippleRef = useRef(null);
@@ -11,41 +27,6 @@ export const BackgroundEffects = () => {
   const lastTrailTimeRef = useRef(0);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [particles] = useState(() => generateParticles(18));
-
-  // Generate random particles with varied properties
-  function generateParticles(count) {
-    const shapes = ['square', 'triangle', 'circle', 'diamond'];
-    return Array.from({ length: count }, (_, i) => ({
-      id: i,
-      shape: shapes[i % shapes.length],
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      size: Math.random() * 10 + 10, // 10-20px
-      animationDelay: Math.random() * -40,
-      animationDuration: Math.random() * 20 + 20, // 20-40s
-      rotationDuration: Math.random() * 30 + 20, // 20-50s
-      opacityBase: Math.random() * 0.05 + 0.05, // 0.05-0.1
-    }));
-  }
-
-  // Smooth cursor following with requestAnimationFrame
-  const updateCursorPosition = useCallback(() => {
-    if (!cursorGlowRef.current) return;
-
-    const { x: targetX, y: targetY } = mousePositionRef.current;
-    const { x: currentX, y: currentY } = currentPositionRef.current;
-
-    // Smooth interpolation (easing)
-    const ease = 0.15;
-    const newX = currentX + (targetX - currentX) * ease;
-    const newY = currentY + (targetY - currentY) * ease;
-
-    currentPositionRef.current = { x: newX, y: newY };
-
-    cursorGlowRef.current.style.transform = `translate(${newX - 10}px, ${newY - 10}px)`;
-
-    animationFrameRef.current = requestAnimationFrame(updateCursorPosition);
-  }, []);
 
   // Create trail particle with throttling
   const createTrailParticle = useCallback((x, y) => {
@@ -116,6 +97,25 @@ export const BackgroundEffects = () => {
     // Hide default cursor
     document.body.style.cursor = 'none';
 
+    // Smooth cursor following with requestAnimationFrame
+    const updateCursorPosition = () => {
+      if (!cursorGlowRef.current) return;
+
+      const { x: targetX, y: targetY } = mousePositionRef.current;
+      const { x: currentX, y: currentY } = currentPositionRef.current;
+
+      // Smooth interpolation (easing)
+      const ease = 0.15;
+      const newX = currentX + (targetX - currentX) * ease;
+      const newY = currentY + (targetY - currentY) * ease;
+
+      currentPositionRef.current = { x: newX, y: newY };
+
+      cursorGlowRef.current.style.transform = `translate(${newX - 10}px, ${newY - 10}px)`;
+
+      animationFrameRef.current = requestAnimationFrame(updateCursorPosition);
+    };
+
     const handleMouseMove = (e) => {
       mousePositionRef.current = { x: e.clientX, y: e.clientY };
       
@@ -170,7 +170,7 @@ export const BackgroundEffects = () => {
       // Cleanup trail particles
       trailParticlesRef.current.forEach(p => p.remove());
     };
-  }, [isTouchDevice, updateCursorPosition, createTrailParticle, createRipple]);
+  }, [isTouchDevice, createTrailParticle, createRipple]);
 
   // Don't render cursor effects on touch devices
   const renderCursorEffects = !isTouchDevice;
