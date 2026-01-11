@@ -9,6 +9,7 @@ import { TechStackShowcase } from "./components/TechStackShowcase";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
+import { PartnershipPage } from "./pages/PartnershipPage";
 
 const Home = () => {
   return (
@@ -27,7 +28,6 @@ const Home = () => {
 const ServicesPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Services Page</h1><p>Coming soon...</p></div></div>;
 const PortfolioPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Portfolio Page</h1><p>Coming soon...</p></div></div>;
 const AboutPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>About Page</h1><p>Coming soon...</p></div></div>;
-const PartnershipPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Partnership Page</h1><p>Coming soon...</p></div></div>;
 const TestimonialsPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Testimonials Page</h1><p>Coming soon...</p></div></div>;
 const TechStackPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Tech Stack Page</h1><p>Coming soon...</p></div></div>;
 const ContactPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Contact Page</h1><p>Coming soon...</p></div></div>;
