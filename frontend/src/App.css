@@ -1446,64 +1446,16 @@ body {
 }
 
 /* ========================================
-   PARTNERSHIP PAGE
+   PARTNERSHIP SECTION (HOMEPAGE)
 ======================================== */
-.partnership-page {
-  min-height: calc(100vh - 80px);
-}
-
-.partnership-hero {
-  padding: 120px 7.6923% 80px;
-  background: var(--bg-primary);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-
-.partnership-hero-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(155, 155, 155, 0.05) 1px, rgba(155, 155, 155, 0.05) 2px),
-    repeating-linear-gradient(-90deg, transparent, transparent 1px, rgba(155, 155, 155, 0.05) 1px, rgba(155, 155, 155, 0.05) 2px);
-  background-size: 60px 60px;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.partnership-hero-title {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-
-.partnership-hero-subtitle {
-  font-size: 22px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Featured Partner Section */
-.featured-partner-section {
-  padding: 80px 7.6923%;
+.partnership-section {
+  padding: 100px 7.6923%;
   background: var(--bg-secondary);
 }
 
 .featured-partner-card {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 80px;
   background: rgba(18, 18, 18, 0.6);
   backdrop-filter: blur(20px);
   border: 1px solid var(--brand-gold);
@@ -1548,14 +1500,14 @@ body {
 }
 
 .partner-company-name {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
 }
 
 .partner-tagline {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--brand-gold);
   font-weight: 500;
   margin: 0;
@@ -1626,10 +1578,16 @@ body {
   transform: translateY(-2px);
 }
 
-/* Partnership Benefits Section */
-.partnership-benefits-section {
-  padding: 100px 7.6923%;
-  background: var(--bg-primary);
+.partnership-benefits-content {
+  margin-top: 40px;
+}
+
+.benefits-section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .benefits-grid {
