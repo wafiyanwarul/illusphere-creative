@@ -543,7 +543,7 @@ export const OrderServicesPage = () => {
             </div>
 
             <div className="success-info">
-              <p>We've received your project request</p>
+              <p>We&apos;ve received your project request</p>
               <p className="highlight">Our team will review your request within 24 hours</p>
             </div>
 
@@ -552,7 +552,7 @@ export const OrderServicesPage = () => {
               <ol>
                 <li><Check size={16} className="step-check" /> Request received and logged in our system</li>
                 <li><span className="step-arrow">→</span> Team reviews your requirements (within 24 hours)</li>
-                <li><span className="step-arrow">→</span> We'll contact you to schedule initial consultation</li>
+                <li><span className="step-arrow">→</span> We&apos;ll contact you to schedule initial consultation</li>
                 <li><span className="step-arrow">→</span> Detailed proposal and final pricing sent</li>
                 <li><span className="step-arrow">→</span> Project kickoff upon agreement</li>
               </ol>
@@ -560,7 +560,7 @@ export const OrderServicesPage = () => {
 
             <div className="email-notice">
               <p>A confirmation email has been sent to</p>
-              <p className="email">{formData.email}</p>
+              <p className="email">{formData.email || 'your email'}</p>
             </div>
 
             <div className="success-actions">
@@ -1100,7 +1100,7 @@ export const OrderServicesPage = () => {
                     checked={formData.agreeTerms}
                     onChange={(e) => handleInputChange('agreeTerms', e.target.checked)}
                   />
-                  <span>I agree to Illusphere Creative's <a href="/terms" target="_blank">Terms of Service</a></span>
+                  <span>I agree to Illusphere Creative&apos;s <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a></span>
                 </label>
                 {errors.agreeTerms && <span className="error-message">{errors.agreeTerms}</span>}
               </div>
