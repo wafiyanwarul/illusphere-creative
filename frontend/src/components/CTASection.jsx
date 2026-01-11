@@ -6,7 +6,7 @@ export const CTASection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="cta-section">
+    <section className="cta-section" id="contact">
       <div className="cta-container">
         <div className="cta-content">
           <div className="cta-badge">
