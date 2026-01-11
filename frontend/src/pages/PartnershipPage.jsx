@@ -58,7 +58,7 @@ export const PartnershipPage = () => {
             <div className="partner-left">
               <div className="partner-logo-container">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_modern-illusphere/artifacts/4jbgbytg_BACKGROUND-PUTIH-3X4.jpg"
+                  src="https://customer-assets.emergentagent.com/job_modern-illusphere/artifacts/hb78kp26_Aikara500Black.png"
                   alt="AIkara AI"
                   className="partner-logo-image"
                 />
