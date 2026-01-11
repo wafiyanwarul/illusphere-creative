@@ -81,7 +81,7 @@ export const TechStackShowcase = () => {
   const creativeToolsExtended = [...creativeTools, ...creativeTools, ...creativeTools];
 
   return (
-    <section className="tech-stack-section">
+    <section className="tech-stack-section" id="tech-stack">
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">Our Technology & Tools</h2>
