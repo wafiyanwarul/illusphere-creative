@@ -12,7 +12,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="home">
       <div className="hero-grid">
         {/* Left Content */}
         <div className="hero-content">
