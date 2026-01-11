@@ -1,0 +1,187 @@
+/* ========================================
+   BACKGROUND EFFECTS
+======================================== */
+
+/* Animated Gradient Mesh Background */
+.gradient-mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gradient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 60s infinite ease-in-out;
+}
+
+.gradient-blob-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #0A4D4D 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.gradient-blob-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #4A3C1F 0%, transparent 70%);
+  top: 50%;
+  right: -150px;
+  animation-delay: -20s;
+}
+
+.gradient-blob-3 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #1A1A1A 0%, transparent 70%);
+  bottom: -200px;
+  left: 50%;
+  animation-delay: -40s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(100px, -100px) scale(1.1);
+  }
+  66% {
+    transform: translate(-100px, 100px) scale(0.9);
+  }
+}
+
+/* Grid Pattern Overlay */
+.grid-pattern-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  perspective: 1000px;
+  transform: rotateX(60deg) scale(2);
+  transform-origin: center top;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Floating Geometric Particles */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.geometric-particle {
+  position: absolute;
+  background: #C9A25F;
+  animation: floatParticle 40s infinite ease-in-out;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.geometric-particle:nth-child(3n) {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.geometric-particle:nth-child(3n+1) {
+  clip-path: circle(50%);
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+/* Custom Cursor Glow */
+.cursor-glow {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(201, 162, 95, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  filter: blur(15px);
+  opacity: 0;
+}
+
+.cursor-glow.cursor-hover {
+  width: 50px;
+  height: 50px;
+  opacity: 0.6;
+  filter: blur(20px);
+}
+
+/* Show cursor glow only on devices with mouse */
+@media (pointer: fine) {
+  .cursor-glow {
+    opacity: 0.3;
+  }
+}
+
+/* Cursor Trail */
+.cursor-trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.cursor-trail-particle {
+  position: absolute;
+  background: #C9A25F;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: fadeOutTrail 0.5s ease-out forwards;
+}
+
+@keyframes fadeOutTrail {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor-glow,
+  .cursor-trail-container {
+    display: none;
+  }
+}
