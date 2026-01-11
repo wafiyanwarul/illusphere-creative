@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
+import { BackgroundEffects } from "./components/BackgroundEffects";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
 import { PortfolioSection } from "./components/PortfolioSection";
@@ -11,6 +12,7 @@ import { TestimonialsSection } from "./components/TestimonialsSection";
 import { TechStackShowcase } from "./components/TechStackShowcase";
 import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
+import { OrderServicesPage } from "./pages/OrderServicesPage";
 
 const Home = () => {
   return (
@@ -48,10 +50,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <BackgroundEffects />
         <Navigation />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/order-services" element={<OrderServicesPage />} />
             <Route path="/about" element={<RedirectToHome section="about" />} />
             <Route path="/partnership" element={<RedirectToHome section="partnership" />} />
             <Route path="/services" element={<RedirectToHome section="services" />} />
