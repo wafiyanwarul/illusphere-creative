@@ -37,46 +37,63 @@ export const FigmaLogo = ({ size = 56, isHovered }) => (
   </svg>
 );
 
-// Python - Two-tone snake (Blue and Yellow)
+// Python - Clean two-tone intertwined snakes
 export const PythonLogo = ({ size = 56, isHovered }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     {isHovered ? (
       <>
-        {/* Blue snake top */}
-        <path d="M32 8C24 8 18 14 18 22V32H32V34H18C14 34 10 38 10 42C10 48 14 52 18 52H24V44C24 38 28 34 32 34H42C46 34 50 30 50 26V16C50 12 46 8 42 8H32Z" fill="#3776AB" />
-        <circle cx="26" cy="16" r="2.5" fill="#FFFFFF" />
-        {/* Yellow snake bottom */}
-        <path d="M32 56C40 56 46 50 46 42V32H32V30H46C50 30 54 26 54 22C54 16 50 12 46 12H40V20C40 26 36 30 32 30H22C18 30 14 34 14 38V48C14 52 18 56 22 56H32Z" fill="#FFD43B" />
-        <circle cx="38" cy="48" r="2.5" fill="#3776AB" />
+        {/* Blue snake - top left */}
+        <path 
+          d="M32 10C25 10 19 14 19 20V32H32V34H16C12 34 10 38 10 42C10 48 14 52 18 52H24V44C24 38 28 34 32 34H44C48 34 52 30 52 26V16C52 12 48 10 44 10H32ZM28 15C29.66 15 31 16.34 31 18C31 19.66 29.66 21 28 21C26.34 21 25 19.66 25 18C25 16.34 26.34 15 28 15Z" 
+          fill="#3776AB"
+        />
+        {/* Yellow snake - bottom right */}
+        <path 
+          d="M32 54C39 54 45 50 45 44V32H32V30H48C52 30 54 26 54 22C54 16 50 12 46 12H40V20C40 26 36 30 32 30H20C16 30 12 34 12 38V48C12 52 16 54 20 54H32ZM36 49C34.34 49 33 47.66 33 46C33 44.34 34.34 43 36 43C37.66 43 39 44.34 39 46C39 47.66 37.66 49 36 49Z" 
+          fill="#FFD43B"
+        />
       </>
     ) : (
       <>
-        <path d="M32 8C24 8 18 14 18 22V32H32V34H18C14 34 10 38 10 42C10 48 14 52 18 52H24V44C24 38 28 34 32 34H42C46 34 50 30 50 26V16C50 12 46 8 42 8H32Z" fill="#FFFFFF" opacity="0.7" />
-        <circle cx="26" cy="16" r="2.5" fill="#0A0A0A" />
-        <path d="M32 56C40 56 46 50 46 42V32H32V30H46C50 30 54 26 54 22C54 16 50 12 46 12H40V20C40 26 36 30 32 30H22C18 30 14 34 14 38V48C14 52 18 56 22 56H32Z" fill="#FFFFFF" opacity="0.7" />
-        <circle cx="38" cy="48" r="2.5" fill="#0A0A0A" />
+        <path 
+          d="M32 10C25 10 19 14 19 20V32H32V34H16C12 34 10 38 10 42C10 48 14 52 18 52H24V44C24 38 28 34 32 34H44C48 34 52 30 52 26V16C52 12 48 10 44 10H32ZM28 15C29.66 15 31 16.34 31 18C31 19.66 29.66 21 28 21C26.34 21 25 19.66 25 18C25 16.34 26.34 15 28 15Z" 
+          fill="#FFFFFF" 
+          opacity="0.7"
+        />
+        <path 
+          d="M32 54C39 54 45 50 45 44V32H32V30H48C52 30 54 26 54 22C54 16 50 12 46 12H40V20C40 26 36 30 32 30H20C16 30 12 34 12 38V48C12 52 16 54 20 54H32ZM36 49C34.34 49 33 47.66 33 46C33 44.34 34.34 43 36 43C37.66 43 39 44.34 39 46C39 47.66 37.66 49 36 49Z" 
+          fill="#FFFFFF" 
+          opacity="0.7"
+        />
       </>
     )}
   </svg>
 );
 
-// Blender - Orange and Blue
+// Blender - Star/arrow in circle
 export const BlenderLogo = ({ size = 56, isHovered }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     {isHovered ? (
       <>
-        {/* Orange outer circle */}
-        <circle cx="32" cy="32" r="26" fill="#E87D0D" />
-        {/* Blue inner circle */}
-        <circle cx="32" cy="32" r="16" fill="#265787" />
-        {/* White center dot */}
-        <circle cx="32" cy="32" r="6" fill="#FFFFFF" />
+        {/* Orange circle background */}
+        <circle cx="32" cy="32" r="28" fill="#E87D0D" />
+        {/* Blue inner star/arrow shape */}
+        <path 
+          d="M32 12L38 24L50 26L41 35L43 48L32 42L21 48L23 35L14 26L26 24L32 12Z" 
+          fill="#265787"
+        />
+        {/* White center highlight */}
+        <circle cx="32" cy="32" r="8" fill="#FFFFFF" opacity="0.9" />
       </>
     ) : (
       <>
-        <circle cx="32" cy="32" r="26" fill="#FFFFFF" opacity="0.7" />
-        <circle cx="32" cy="32" r="16" fill="#FFFFFF" opacity="0.5" />
-        <circle cx="32" cy="32" r="6" fill="#0A0A0A" opacity="0.3" />
+        <circle cx="32" cy="32" r="28" fill="#FFFFFF" opacity="0.7" />
+        <path 
+          d="M32 12L38 24L50 26L41 35L43 48L32 42L21 48L23 35L14 26L26 24L32 12Z" 
+          fill="#FFFFFF" 
+          opacity="0.5"
+        />
+        <circle cx="32" cy="32" r="8" fill="#0A0A0A" opacity="0.3" />
       </>
     )}
   </svg>
