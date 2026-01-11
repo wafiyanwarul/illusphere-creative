@@ -1708,3 +1708,324 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ========================================
+   ABOUT PAGE
+======================================== */
+.about-page {
+  min-height: calc(100vh - 80px);
+}
+
+.about-hero {
+  padding: 120px 7.6923% 80px;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.about-hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(155, 155, 155, 0.05) 1px, rgba(155, 155, 155, 0.05) 2px),
+    repeating-linear-gradient(-90deg, transparent, transparent 1px, rgba(155, 155, 155, 0.05) 1px, rgba(155, 155, 155, 0.05) 2px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.about-hero-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero-subtitle {
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Founder Section */
+.founder-section {
+  padding: 80px 7.6923%;
+  background: var(--bg-secondary);
+}
+
+.founder-card {
+  max-width: 900px;
+  margin: 40px auto 0;
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.founder-card:hover {
+  border-color: var(--brand-gold);
+  box-shadow: 0 20px 60px rgba(201, 162, 95, 0.2);
+  transform: translateY(-4px);
+}
+
+.founder-left {
+  display: flex;
+  justify-content: center;
+}
+
+.founder-photo-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid var(--brand-gold);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(201, 162, 95, 0.3);
+}
+
+.founder-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founder-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.founder-title {
+  font-size: 18px;
+  color: var(--brand-gold);
+  font-weight: 500;
+  margin: 0;
+}
+
+.founder-bio {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.founder-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(201, 162, 95, 0.1);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
+  background: rgba(201, 162, 95, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Story Section */
+.story-section {
+  padding: 80px 7.6923%;
+  background: var(--bg-primary);
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.story-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Vision & Mission Section */
+.vision-mission-section {
+  padding: 80px 7.6923%;
+  background: var(--bg-secondary);
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vm-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 48px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.vm-card:hover {
+  border-color: var(--brand-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+.vm-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 95, 0.1);
+  border: 1px solid rgba(201, 162, 95, 0.3);
+  color: var(--brand-gold);
+}
+
+.vm-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.vm-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Core Values Section */
+.values-section {
+  padding: 100px 7.6923%;
+  background: var(--bg-primary);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.value-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  border-color: var(--brand-gold);
+  transform: translateY(-4px);
+}
+
+.value-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 95, 0.1);
+  border: 1px solid rgba(201, 162, 95, 0.3);
+  color: var(--brand-gold);
+}
+
+.value-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.value-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* About CTA Section */
+.about-cta-section {
+  padding: 100px 7.6923%;
+  background: linear-gradient(135deg, rgba(201, 162, 95, 0.05) 0%, var(--bg-secondary) 100%);
+}
+
+.about-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.about-cta-title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.about-cta-description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* About Page Responsive */
+@media (min-width: 768px) {
+  .vision-mission-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .founder-card {
+    grid-template-columns: 2fr 3fr;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
