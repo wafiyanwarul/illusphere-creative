@@ -758,14 +758,12 @@ body {
 .tech-icon {
   width: 56px;
   height: 56px;
-  color: var(--text-primary);
-  transition: all 0.3s ease;
-  filter: grayscale(0.5) brightness(0.9);
+  transition: all 0.3s ease, color 0s, filter 0s;
 }
 
 .tech-card:hover .tech-icon {
-  filter: grayscale(0) brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
   transform: scale(1.15);
+  filter: drop-shadow(0 0 16px currentColor);
 }
 
 .tech-icon-placeholder-text {
