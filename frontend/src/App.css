@@ -565,6 +565,76 @@ section + section {
   padding: 100px 7.6923%;
   background: var(--bg-secondary);
 }
+
+.about-section .founder-card {
+  max-width: 1000px;
+  margin: 60px auto;
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.about-section .founder-card:hover {
+  border-color: var(--brand-gold);
+  box-shadow: 0 20px 60px rgba(201, 162, 95, 0.2);
+  transform: translateY(-4px);
+}
+
+.about-section .story-content {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.story-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.about-section .vision-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 60px auto;
+}
+
+.about-section .values-content {
+  margin-top: 60px;
+}
+
+.values-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.values-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 1024px) {
+  .about-section .founder-card {
+    grid-template-columns: 2fr 3fr;
+  }
+  
+  .about-section .vision-mission-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .services-section {
   padding: 100px 7.6923%;
   background: var(--bg-primary);
