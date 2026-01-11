@@ -1,92 +1,164 @@
 /* ========================================
-   BACKGROUND EFFECTS
-======================================== */
+   BACKGROUND EFFECTS - Premium Dark Theme
+   ======================================== */
 
-/* Animated Gradient Mesh Background */
+/* ----------------------------------------
+   1. ANIMATED GRADIENT MESH BACKGROUND
+   ---------------------------------------- */
 .gradient-mesh-bg {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
   overflow: hidden;
   pointer-events: none;
+  background: #0A0A0A;
 }
 
 .gradient-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  animation: float 60s infinite ease-in-out;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
+/* Blob 1 - Dark Teal - Top Left */
 .gradient-blob-1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle at center, rgba(13, 77, 77, 0.20) 0%, rgba(13, 77, 77, 0.08) 40%, transparent 70%);
+  filter: blur(120px);
+  top: -15%;
+  left: -10%;
+  animation: floatBlob1 75s ease-in-out infinite;
+}
+
+/* Blob 2 - Dark Gold - Right Side */
+.gradient-blob-2 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #0A4D4D 0%, transparent 70%);
-  top: -200px;
-  left: -200px;
-  animation-delay: 0s;
-}
-
-.gradient-blob-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #4A3C1F 0%, transparent 70%);
-  top: 50%;
-  right: -150px;
+  background: radial-gradient(circle at center, rgba(74, 60, 31, 0.15) 0%, rgba(74, 60, 31, 0.06) 40%, transparent 70%);
+  filter: blur(100px);
+  top: 30%;
+  right: -8%;
+  animation: floatBlob2 65s ease-in-out infinite;
   animation-delay: -20s;
 }
 
+/* Blob 3 - Deep Purple - Bottom */
 .gradient-blob-3 {
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, #1A1A1A 0%, transparent 70%);
-  bottom: -200px;
-  left: 50%;
+  background: radial-gradient(circle at center, rgba(26, 10, 46, 0.10) 0%, rgba(26, 10, 46, 0.04) 40%, transparent 70%);
+  filter: blur(130px);
+  bottom: -10%;
+  left: 25%;
+  animation: floatBlob3 90s ease-in-out infinite;
   animation-delay: -40s;
 }
 
-@keyframes float {
+/* Blob 4 - Secondary Teal - Center Right */
+.gradient-blob-4 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at center, rgba(13, 77, 77, 0.12) 0%, rgba(13, 77, 77, 0.05) 40%, transparent 70%);
+  filter: blur(150px);
+  top: 60%;
+  left: 60%;
+  animation: floatBlob4 80s ease-in-out infinite;
+  animation-delay: -30s;
+}
+
+/* Blob Float Animations - Different paths for organic feel */
+@keyframes floatBlob1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(80px, 60px) scale(1.05);
+  }
+  50% {
+    transform: translate(40px, 120px) scale(0.95);
+  }
+  75% {
+    transform: translate(-40px, 80px) scale(1.08);
+  }
+}
+
+@keyframes floatBlob2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-60px, 100px) scale(0.92);
+  }
+  50% {
+    transform: translate(-100px, 40px) scale(1.1);
+  }
+  75% {
+    transform: translate(-30px, -60px) scale(0.98);
+  }
+}
+
+@keyframes floatBlob3 {
   0%, 100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
-    transform: translate(100px, -100px) scale(1.1);
+    transform: translate(120px, -80px) scale(1.06);
   }
   66% {
-    transform: translate(-100px, 100px) scale(0.9);
+    transform: translate(-80px, -40px) scale(0.94);
   }
 }
 
-/* Grid Pattern Overlay */
+@keyframes floatBlob4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(-100px, -60px) scale(1.04);
+  }
+  40% {
+    transform: translate(-60px, 80px) scale(0.96);
+  }
+  60% {
+    transform: translate(40px, 100px) scale(1.08);
+  }
+  80% {
+    transform: translate(80px, 20px) scale(0.92);
+  }
+}
+
+/* ----------------------------------------
+   2. GRID OVERLAY (Subtle)
+   ---------------------------------------- */
 .grid-pattern-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: 
-    linear-gradient(rgba(26, 26, 26, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 26, 26, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  perspective: 1000px;
-  transform: rotateX(60deg) scale(2);
-  transform-origin: center top;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
+  background-image: 
+    linear-gradient(to right, rgba(26, 26, 26, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 1;
 }
 
-/* Floating Geometric Particles */
+/* ----------------------------------------
+   3. FLOATING GEOMETRIC PARTICLES
+   ---------------------------------------- */
 .floating-particles {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
@@ -94,94 +166,284 @@
 
 .geometric-particle {
   position: absolute;
+  left: var(--particle-left);
+  top: var(--particle-top);
+  width: var(--particle-size);
+  height: var(--particle-size);
   background: #C9A25F;
-  animation: floatParticle 40s infinite ease-in-out;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  opacity: var(--opacity-base);
+  will-change: transform, opacity;
+  animation: 
+    floatParticle var(--float-duration) ease-in-out var(--float-delay) infinite,
+    rotateParticle var(--rotate-duration) linear infinite,
+    pulseOpacity 8s ease-in-out infinite;
 }
 
-.geometric-particle:nth-child(3n) {
+/* Particle Shapes */
+.particle-square {
+  width: 15px;
+  height: 15px;
+  clip-path: none;
+}
+
+.particle-triangle {
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
-.geometric-particle:nth-child(3n+1) {
-  clip-path: circle(50%);
+.particle-circle {
+  border-radius: 50%;
+  clip-path: none;
+}
+
+.particle-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 @keyframes floatParticle {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.1;
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-30px) translateX(15px);
   }
   50% {
-    transform: translateY(-100px) rotate(180deg);
-    opacity: 0.3;
+    transform: translateY(-60px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(-20px);
   }
 }
 
-/* Custom Cursor Glow */
+@keyframes rotateParticle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseOpacity {
+  0%, 100% {
+    opacity: var(--opacity-base, 0.05);
+  }
+  50% {
+    opacity: calc(var(--opacity-base, 0.05) + 0.1);
+  }
+}
+
+/* ----------------------------------------
+   4. CUSTOM CURSOR GLOW
+   ---------------------------------------- */
 .cursor-glow {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  background: radial-gradient(circle, rgba(201, 162, 95, 0.4) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  filter: blur(15px);
-  opacity: 0;
-}
-
-.cursor-glow.cursor-hover {
-  width: 50px;
-  height: 50px;
-  opacity: 0.6;
-  filter: blur(20px);
-}
-
-/* Show cursor glow only on devices with mouse */
-@media (pointer: fine) {
-  .cursor-glow {
-    opacity: 0.3;
-  }
-}
-
-/* Cursor Trail */
-.cursor-trail-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height: 20px;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 9999;
+  will-change: transform;
+  mix-blend-mode: screen;
 }
 
-.cursor-trail-particle {
+.cursor-glow-inner {
   position: absolute;
-  background: #C9A25F;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(201, 162, 95, 0.6) 0%, rgba(201, 162, 95, 0.2) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(8px);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-glow-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(201, 162, 95, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.4;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Cursor Hover State */
+.cursor-glow.cursor-hover .cursor-glow-inner {
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle, rgba(201, 162, 95, 0.8) 0%, rgba(201, 162, 95, 0.3) 50%, transparent 70%);
+}
+
+.cursor-glow.cursor-hover .cursor-glow-outer {
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+}
+
+/* Cursor Click State */
+.cursor-glow.cursor-click .cursor-glow-inner {
+  width: 15px;
+  height: 15px;
+  transition: width 0.1s ease, height 0.1s ease;
+}
+
+.cursor-glow.cursor-click .cursor-glow-outer {
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  transition: width 0.1s ease, height 0.1s ease;
+}
+
+/* ----------------------------------------
+   5. CURSOR TRAIL PARTICLES
+   ---------------------------------------- */
+.cursor-trail-particle {
+  position: fixed;
+  background: radial-gradient(circle, rgba(201, 162, 95, 0.8) 0%, rgba(201, 162, 95, 0.4) 50%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+  z-index: 9998;
   transform: translate(-50%, -50%);
-  animation: fadeOutTrail 0.5s ease-out forwards;
+  animation: fadeOutTrail 0.6s ease-out forwards;
 }
 
 @keyframes fadeOutTrail {
   0% {
-    opacity: 0.6;
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(1);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0.6);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0.2);
+    filter: blur(3px);
   }
 }
 
-/* Hide custom cursor on touch devices */
-@media (pointer: coarse) {
+/* ----------------------------------------
+   6. CURSOR RIPPLE EFFECT (On Hover)
+   ---------------------------------------- */
+.cursor-ripple-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9997;
+  overflow: hidden;
+}
+
+.cursor-ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(201, 162, 95, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rippleExpand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    border-width: 2px;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+/* ----------------------------------------
+   7. RESPONSIVE & ACCESSIBILITY
+   ---------------------------------------- */
+
+/* Disable cursor effects on touch devices */
+@media (pointer: coarse), (hover: none) {
   .cursor-glow,
-  .cursor-trail-container {
+  .cursor-ripple-container,
+  .cursor-trail-particle {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-blob {
+    animation: none;
+  }
+  
+  .geometric-particle {
+    animation: none;
+    opacity: 0.08;
+  }
+  
+  .cursor-glow-inner,
+  .cursor-glow-outer {
+    transition: none;
+  }
+  
+  .cursor-trail-particle,
+  .cursor-ripple {
+    animation: none;
     display: none;
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 768px) {
+  .gradient-blob {
+    filter: blur(80px);
+  }
+  
+  .gradient-blob-4 {
+    display: none;
+  }
+  
+  .geometric-particle:nth-child(n+12) {
+    display: none;
+  }
+}
+
+/* Very small screens - reduce effects further */
+@media (max-width: 480px) {
+  .gradient-blob-3 {
+    display: none;
+  }
+  
+  .geometric-particle:nth-child(n+8) {
+    display: none;
+  }
+  
+  .grid-pattern-overlay {
+    display: none;
+  }
+}
+
+/* High DPI displays - ensure crisp rendering */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .geometric-particle {
+    transform: translateZ(0);
   }
 }
