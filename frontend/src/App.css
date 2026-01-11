@@ -1536,14 +1536,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
+  background: #FFFFFF;
   box-shadow: 0 0 30px rgba(201, 162, 95, 0.3);
+  padding: 20px;
 }
 
 .partner-logo-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .partner-company-name {
