@@ -5,40 +5,43 @@ import {
   SiReact, 
   SiNextdotjs, 
   SiNodedotjs, 
-  SiPython, 
   SiPostgresql, 
   SiMongodb, 
   SiAmazonwebservices, 
   SiDocker, 
   SiTensorflow,
   SiAdobephotoshop,
-  SiAdobeillustrator,
-  SiFigma,
-  SiBlender,
-  SiAdobeaftereffects,
-  SiAdobepremierepro
+  SiAdobeillustrator
 } from 'react-icons/si';
+import { 
+  DaVinciResolveLogo, 
+  FigmaLogo, 
+  PythonLogo, 
+  BlenderLogo, 
+  PremiereLogo,
+  AfterEffectsLogo 
+} from './CustomLogos';
 
 const techStack = [
-  { name: 'React', category: 'tech', icon: SiReact, color: '#61DAFB' },
-  { name: 'Next.js', category: 'tech', icon: SiNextdotjs, color: '#FFFFFF' },
-  { name: 'Node.js', category: 'tech', icon: SiNodedotjs, color: '#339933' },
-  { name: 'Python', category: 'tech', icon: SiPython, color: '#3776AB' },
-  { name: 'PostgreSQL', category: 'tech', icon: SiPostgresql, color: '#4169E1' },
-  { name: 'MongoDB', category: 'tech', icon: SiMongodb, color: '#47A248' },
-  { name: 'AWS', category: 'tech', icon: SiAmazonwebservices, color: '#FF9900' },
-  { name: 'Docker', category: 'tech', icon: SiDocker, color: '#2496ED' },
-  { name: 'TensorFlow', category: 'tech', icon: SiTensorflow, color: '#FF6F00' }
+  { name: 'React', category: 'tech', icon: SiReact, color: '#61DAFB', type: 'simple' },
+  { name: 'Next.js', category: 'tech', icon: SiNextdotjs, color: '#FFFFFF', type: 'simple' },
+  { name: 'Node.js', category: 'tech', icon: SiNodedotjs, color: '#339933', type: 'simple' },
+  { name: 'Python', category: 'tech', icon: PythonLogo, color: null, type: 'custom' },
+  { name: 'PostgreSQL', category: 'tech', icon: SiPostgresql, color: '#4169E1', type: 'simple' },
+  { name: 'MongoDB', category: 'tech', icon: SiMongodb, color: '#47A248', type: 'simple' },
+  { name: 'AWS', category: 'tech', icon: SiAmazonwebservices, color: '#FF9900', type: 'simple' },
+  { name: 'Docker', category: 'tech', icon: SiDocker, color: '#2496ED', type: 'simple' },
+  { name: 'TensorFlow', category: 'tech', icon: SiTensorflow, color: '#FF6F00', type: 'simple' }
 ];
 
 const creativeTools = [
-  { name: 'Adobe Photoshop', category: 'creative', icon: SiAdobephotoshop, color: '#31A8FF' },
-  { name: 'Adobe Illustrator', category: 'creative', icon: SiAdobeillustrator, color: '#FF9A00' },
-  { name: 'Figma', category: 'creative', icon: SiFigma, color: '#F24E1E' },
-  { name: 'Blender', category: 'creative', icon: SiBlender, color: '#F5792A' },
-  { name: 'After Effects', category: 'creative', icon: SiAdobeaftereffects, color: '#9999FF' },
-  { name: 'Premiere Pro', category: 'creative', icon: SiAdobepremierepro, color: '#9999FF' },
-  { name: 'DaVinci Resolve', category: 'creative', icon: null, color: '#FFFFFF' }
+  { name: 'Adobe Photoshop', category: 'creative', icon: SiAdobephotoshop, color: '#31A8FF', type: 'simple' },
+  { name: 'Adobe Illustrator', category: 'creative', icon: SiAdobeillustrator, color: '#FF9A00', type: 'simple' },
+  { name: 'Figma', category: 'creative', icon: FigmaLogo, color: null, type: 'custom' },
+  { name: 'Blender', category: 'creative', icon: BlenderLogo, color: null, type: 'custom' },
+  { name: 'After Effects', category: 'creative', icon: AfterEffectsLogo, color: null, type: 'custom' },
+  { name: 'Premiere Pro', category: 'creative', icon: PremiereLogo, color: null, type: 'custom' },
+  { name: 'DaVinci Resolve', category: 'creative', icon: DaVinciResolveLogo, color: null, type: 'custom' }
 ];
 
 const TechCard = ({ tech, index }) => {
@@ -53,7 +56,9 @@ const TechCard = ({ tech, index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="tech-icon-wrapper">
-        {Icon ? (
+        {tech.type === 'custom' ? (
+          <Icon size={56} isHovered={isHovered} />
+        ) : (
           <Icon 
             className="tech-icon" 
             style={{ 
@@ -61,8 +66,6 @@ const TechCard = ({ tech, index }) => {
               filter: isHovered ? 'none' : 'grayscale(0.5) brightness(0.9)'
             }}
           />
-        ) : (
-          <div className="tech-icon-placeholder-text">DR</div>
         )}
       </div>
       <span className="tech-name">{tech.name}</span>
