@@ -36,7 +36,7 @@ export const TestimonialsSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="testimonials-section">
+    <section className="testimonials-section" id="testimonials">
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">What Our Clients Say</h2>
