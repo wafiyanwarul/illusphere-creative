@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -41,6 +41,35 @@ const creativeTools = [
   { name: 'DaVinci Resolve', category: 'creative', icon: null, color: '#FFFFFF' }
 ];
 
+const TechCard = ({ tech, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = tech.icon;
+
+  return (
+    <div 
+      key={`tech-${index}`} 
+      className="tech-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="tech-icon-wrapper">
+        {Icon ? (
+          <Icon 
+            className="tech-icon" 
+            style={{ 
+              color: isHovered ? tech.color : '#FFFFFF',
+              filter: isHovered ? 'none' : 'grayscale(0.5) brightness(0.9)'
+            }}
+          />
+        ) : (
+          <div className="tech-icon-placeholder-text">DR</div>
+        )}
+      </div>
+      <span className="tech-name">{tech.name}</span>
+    </div>
+  );
+};
+
 export const TechStackShowcase = () => {
   const navigate = useNavigate();
 
@@ -61,38 +90,18 @@ export const TechStackShowcase = () => {
         {/* Tech Stack Marquee - Scroll Left to Right */}
         <div className="marquee-container">
           <div className="marquee-track marquee-left-to-right">
-            {techStackExtended.map((tech, index) => {
-              const Icon = tech.icon;
-              return (
-                <div key={`tech-${index}`} className="tech-card">
-                  <div className="tech-icon-wrapper">
-                    {Icon && <Icon className="tech-icon" />}
-                  </div>
-                  <span className="tech-name">{tech.name}</span>
-                </div>
-              );
-            })}
+            {techStackExtended.map((tech, index) => (
+              <TechCard key={`tech-${index}`} tech={tech} index={index} />
+            ))}
           </div>
         </div>
 
         {/* Creative Tools Marquee - Scroll Right to Left */}
         <div className="marquee-container">
           <div className="marquee-track marquee-right-to-left">
-            {creativeToolsExtended.map((tool, index) => {
-              const Icon = tool.icon;
-              return (
-                <div key={`creative-${index}`} className="tech-card">
-                  <div className="tech-icon-wrapper">
-                    {Icon ? (
-                      <Icon className="tech-icon" />
-                    ) : (
-                      <div className="tech-icon-placeholder-text">DR</div>
-                    )}
-                  </div>
-                  <span className="tech-name">{tool.name}</span>
-                </div>
-              );
-            })}
+            {creativeToolsExtended.map((tool, index) => (
+              <TechCard key={`creative-${index}`} tech={tool} index={index} />
+            ))}
           </div>
         </div>
 
