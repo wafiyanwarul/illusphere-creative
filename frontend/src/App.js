@@ -1,38 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
-import { WhyChooseUsSection } from "./components/WhyChooseUsSection";
-import { TechStackShowcase } from "./components/TechStackShowcase";
-import { TestimonialsSection } from "./components/TestimonialsSection";
+import { PortfolioSection } from "./components/PortfolioSection";
+import { AboutSection } from "./components/AboutSection";
 import { PartnershipSection } from "./components/PartnershipSection";
+import { TestimonialsSection } from "./components/TestimonialsSection";
+import { TechStackShowcase } from "./components/TechStackShowcase";
 import { CTASection } from "./components/CTASection";
 import { Footer } from "./components/Footer";
-import { AboutPage } from "./pages/AboutPage";
 
 const Home = () => {
   return (
     <div className="page-wrapper">
       <HeroSection />
       <ServicesSection />
-      <WhyChooseUsSection />
-      <TechStackShowcase />
-      <TestimonialsSection />
+      <PortfolioSection />
+      <AboutSection />
       <PartnershipSection />
+      <TestimonialsSection />
+      <TechStackShowcase />
       <CTASection />
     </div>
   );
 };
 
-// Placeholder pages
-const ServicesPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Services Page</h1><p>Coming soon...</p></div></div>;
-const PortfolioPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Portfolio Page</h1><p>Coming soon...</p></div></div>;
-const TestimonialsPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Testimonials Page</h1><p>Coming soon...</p></div></div>;
-const TechStackPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Tech Stack Page</h1><p>Coming soon...</p></div></div>;
-const ContactPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Contact Page</h1><p>Coming soon...</p></div></div>;
-const OrderServicesPage = () => <div className="page-wrapper"><div className="placeholder-page"><h1>Order Services Page</h1><p>Coming soon...</p></div></div>;
+// Redirect component for old page URLs
+const RedirectToHome = ({ section }) => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    navigate(`/#${section}`, { replace: true });
+    setTimeout(() => {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  }, [navigate, section]);
+  
+  return null;
+};
 
 function App() {
   return (
@@ -42,13 +52,13 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/testimonials" element={<TestimonialsPage />} />
-            <Route path="/tech-stack" element={<TechStackPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/order-services" element={<OrderServicesPage />} />
+            <Route path="/about" element={<RedirectToHome section="about" />} />
+            <Route path="/partnership" element={<RedirectToHome section="partnership" />} />
+            <Route path="/services" element={<RedirectToHome section="services" />} />
+            <Route path="/portfolio" element={<RedirectToHome section="portfolio" />} />
+            <Route path="/testimonials" element={<RedirectToHome section="testimonials" />} />
+            <Route path="/tech-stack" element={<RedirectToHome section="tech-stack" />} />
+            <Route path="/contact" element={<RedirectToHome section="contact" />} />
           </Routes>
         </main>
         <Footer />
