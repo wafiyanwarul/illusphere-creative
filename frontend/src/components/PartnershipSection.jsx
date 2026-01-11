@@ -39,7 +39,7 @@ export const PartnershipSection = () => {
   ];
 
   return (
-    <section className="partnership-section">
+    <section className="partnership-section" id="partnership">
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">Our Strategic Partners</h2>
