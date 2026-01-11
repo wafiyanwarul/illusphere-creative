@@ -1587,6 +1587,10 @@ section + section {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1634,6 +1638,11 @@ section + section {
   }
   
   .testimonials-grid-new {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .portfolio-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
