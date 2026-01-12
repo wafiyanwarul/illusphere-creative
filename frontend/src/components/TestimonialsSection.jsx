@@ -6,7 +6,7 @@ const testimonials = [
   {
     id: 1,
     quote: "Illusphere Creative transformed our digital presence completely. Their team delivered a stunning website that increased our conversions by 150%.",
-    name: 'Sarah Johnson',
+    name: 'Ridho Aulia',
     position: 'CEO',
     company: 'TechStart Indonesia',
     rating: 5,
@@ -15,7 +15,7 @@ const testimonials = [
   {
     id: 2,
     quote: "The AI chatbot they built for us handles 80% of customer inquiries automatically. Professional, responsive, and highly skilled team.",
-    name: 'Michael Chen',
+    name: 'Muhammad Faqih',
     position: 'Operations Director',
     company: 'RetailHub Asia',
     rating: 5,
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     quote: "Outstanding creative work! Their social media campaign doubled our engagement rate in just 3 months. Highly recommended!",
     name: 'Priya Sharma',
-    position: 'Marketing Head',
+    position: 'Fachrizal Fazza',
     company: 'GrowthLab',
     rating: 5,
     avatar: 'PS'

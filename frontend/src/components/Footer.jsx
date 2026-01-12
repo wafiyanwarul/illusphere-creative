@@ -66,15 +66,15 @@ export const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Mail size={18} />
-                <a href="mailto:hello@illusphere.com">hello@illusphere.com</a>
+                <a href="mailto:illusphereccstudios@gmail.com">illusphereccstudios@gmail.com</a>
               </li>
               <li>
                 <Phone size={18} />
-                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                <a href="tel:+6285142505525">+6285142505525</a>
               </li>
               <li>
                 <MapPin size={18} />
-                <span>San Francisco, CA</span>
+                <span>Malang, East Java</span>
               </li>
             </ul>
           </div>

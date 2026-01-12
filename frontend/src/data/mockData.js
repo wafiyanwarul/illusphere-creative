@@ -84,7 +84,7 @@ export const testimonials = [
   {
     id: 1,
     company: 'TechNova Systems',
-    name: 'Sarah Mitchell',
+    name: 'Fachrizal Fazza',
     role: 'CTO',
     content: 'Illusphere Creative transformed our legacy system into a cutting-edge cloud-based platform. Their AI integration reduced our processing time by 70%. Exceptional technical expertise.',
     project: 'Cloud Migration & AI Integration'
@@ -92,7 +92,7 @@ export const testimonials = [
   {
     id: 2,
     company: 'Bloom & Co.',
-    name: 'Marcus Rodriguez',
+    name: 'Ridho Aulia',
     role: 'Marketing Director',
     content: 'The social media campaign they designed tripled our engagement rate in just two months. Their creative team understood our brand vision perfectly and delivered stunning visual content.',
     project: 'Social Media Campaign & Graphic Design'
@@ -100,7 +100,7 @@ export const testimonials = [
   {
     id: 3,
     company: 'QuantumLeap Finance',
-    name: 'Dr. Emily Chen',
+    name: 'Muhammad Faqih',
     role: 'CEO',
     content: 'We needed a complex mobile app with real-time data analytics. Illusphere delivered a beautiful, intuitive app that our users love. Their attention to both UX and technical performance is unmatched.',
     project: 'Mobile App Development'
@@ -108,7 +108,7 @@ export const testimonials = [
   {
     id: 4,
     company: 'EcoVision Labs',
-    name: 'James Wellington',
+    name: 'Ahmad Muhammad',
     role: 'Founder',
     content: 'From custom IoT sensors to data visualization dashboards, they handled our unique automation project flawlessly. Their ability to tackle unconventional technical challenges sets them apart.',
     project: 'Custom Tech Project - IoT'
@@ -116,7 +116,7 @@ export const testimonials = [
   {
     id: 5,
     company: 'Artisan Collective',
-    name: 'Sofia Andersson',
+    name: 'Taufiq Luthfi',
     role: 'Creative Lead',
     content: 'The vector illustrations and brand mascot they created became the cornerstone of our entire brand identity. Every piece of work showed incredible attention to detail and artistic vision.',
     project: 'Vector Illustration & Branding'
