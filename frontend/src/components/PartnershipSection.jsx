@@ -83,7 +83,7 @@ export const PartnershipSection = () => {
 
             <button 
               className="btn-primary"
-              onClick={() => window.open('https://aikara.ai', '_blank')}
+              onClick={() => window.open('https://aikarateknologi.lovable.app/', '_blank')}
             >
               Visit AIkara AI
               <ArrowRight size={20} />
