@@ -24,13 +24,8 @@ const testimonials = [
   {
     id: 3,
     quote: "Outstanding creative work! Their social media campaign doubled our engagement rate in just 3 months. Highly recommended!",
-<<<<<<< HEAD
-    name: 'Priya Sharma',
-    position: 'Fachrizal Fazza',
-=======
     name: 'Fachrizal Fazza',
     position: 'Marketing Head',
->>>>>>> c2ba740daca0bef7ea7e03f507b77f28e7cf46bf
     company: 'GrowthLab',
     rating: 5,
     avatar: 'PS'
