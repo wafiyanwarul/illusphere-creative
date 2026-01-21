@@ -23,6 +23,7 @@ import AdminLogin from './pages/admin/AdminLogin'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminProjects from './pages/admin/AdminProjects'
+import AdminProjectDetail from './pages/admin/AdminProjectDetail'
 // import { Analytics } from '@vercel/analytics/react'
 // import { SpeedInsights } from '@vercel/speed-insights/react'
 
@@ -87,6 +88,14 @@ function AppContent () {
             element={
               <ProtectedRoute>
                 <AdminProjects />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/admin-projects/:id'
+            element={
+              <ProtectedRoute>
+                <AdminProjectDetail />
               </ProtectedRoute>
             }
           />
