@@ -23,6 +23,8 @@ import AdminLogin from './pages/admin/AdminLogin'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminProjects from './pages/admin/AdminProjects'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 const Home = () => {
   return (
@@ -125,6 +127,8 @@ function AppContent () {
 function App () {
   return (
     <div className='App'>
+      <Analytics />
+      <SpeedInsights />
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>
