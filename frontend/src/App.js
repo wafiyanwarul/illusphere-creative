@@ -19,9 +19,10 @@ import { TechStackShowcase } from './components/TechStackShowcase'
 import { CTASection } from './components/CTASection'
 import { Footer } from './components/Footer'
 import { OrderServicesPage } from './pages/OrderServicesPage'
-import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminLogin from './pages/admin/AdminLogin'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminProjects from './pages/admin/AdminProjects'
 
 const Home = () => {
   return (
@@ -55,54 +56,77 @@ const RedirectToHome = ({ section }) => {
   return null
 }
 
+function AppContent () {
+  const location = useLocation()
+  const isAdminPage = location.pathname.startsWith('/admin')
+
+  return (
+    <div>
+      {/* <BrowserRouter> */}
+      <BackgroundEffects />
+      {/* Only show Navigation if NOT on admin pages */}
+      {!isAdminPage && <Navigation />}
+      <main className={isAdminPage ? '' : 'main-content'}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/order-services' element={<OrderServicesPage />} />
+          {/* Admin Routes */}
+          <Route path='/admin-login' element={<AdminLogin />} />
+          <Route
+            path='/admin-dashboard'
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/admin-projects'
+            element={
+              <ProtectedRoute>
+                <AdminProjects />
+              </ProtectedRoute>
+            }
+          />
+          <Route path='/about' element={<RedirectToHome section='about' />} />
+          <Route
+            path='/partnership'
+            element={<RedirectToHome section='partnership' />}
+          />
+          <Route
+            path='/services'
+            element={<RedirectToHome section='services' />}
+          />
+          <Route
+            path='/portfolio'
+            element={<RedirectToHome section='portfolio' />}
+          />
+          <Route
+            path='/testimonials'
+            element={<RedirectToHome section='testimonials' />}
+          />
+          <Route
+            path='/tech-stack'
+            element={<RedirectToHome section='tech-stack' />}
+          />
+          <Route
+            path='/contact'
+            element={<RedirectToHome section='contact' />}
+          />
+        </Routes>
+      </main>
+      {/* Only show Footer if NOT on admin pages */}
+      {!isAdminPage && <Footer />}
+      {/* </BrowserRouter> */}
+    </div>
+  )
+}
+
 function App () {
   return (
     <div className='App'>
       <BrowserRouter>
-        <BackgroundEffects />
-        <Navigation />
-        <main className='main-content'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/order-services' element={<OrderServicesPage />} />
-            {/* Admin Routes */}
-            <Route path='/admin-login' element={<AdminLogin />} />
-            <Route
-              path='/admin-dashboard'
-              element={
-                <ProtectedRoute>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route path='/about' element={<RedirectToHome section='about' />} />
-            <Route
-              path='/partnership'
-              element={<RedirectToHome section='partnership' />}
-            />
-            <Route
-              path='/services'
-              element={<RedirectToHome section='services' />}
-            />
-            <Route
-              path='/portfolio'
-              element={<RedirectToHome section='portfolio' />}
-            />
-            <Route
-              path='/testimonials'
-              element={<RedirectToHome section='testimonials' />}
-            />
-            <Route
-              path='/tech-stack'
-              element={<RedirectToHome section='tech-stack' />}
-            />
-            <Route
-              path='/contact'
-              element={<RedirectToHome section='contact' />}
-            />
-          </Routes>
-        </main>
-        <Footer />
+        <AppContent />
       </BrowserRouter>
     </div>
   )
