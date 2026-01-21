@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Navigation } from "./components/Navigation";
 import { BackgroundEffects } from "./components/BackgroundEffects";
 import { HeroSection } from "./components/HeroSection";
@@ -66,6 +67,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <SpeedInsights />
       </BrowserRouter>
     </div>
   );
