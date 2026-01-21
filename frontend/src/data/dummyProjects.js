@@ -561,7 +561,9 @@ export const getProjectById = id => {
 }
 
 export const searchProjects = (query) => {
-  const lowerQuery = query.toLowerCase()
+  if (!query || query.trim() === '') return dummyProjects
+  
+  const lowerQuery = query.toLowerCase().trim()
   return dummyProjects.filter(
     p =>
       p.id.toLowerCase().includes(lowerQuery) ||
